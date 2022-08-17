@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/layfr/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/layfr/frontend-project-lvl1/actions)",
   "main": "index.js",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/layfr/frontend-project-lvl1/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/layfr/frontend-project-lvl1#readme"
+  
 }
+
+
