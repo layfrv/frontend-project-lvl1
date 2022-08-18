@@ -19,8 +19,13 @@
     "url": "https://github.com/layfr/frontend-project-lvl1/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/layfr/frontend-project-lvl1#readme"
-  
+  "homepage": "https://github.com/layfr/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
-
-
