@@ -2,23 +2,21 @@
 /* eslint-disable keyword-spacing */
 // eslint-disable-next-line import/extensions, import/named
 import readlineSync from 'readline-sync';
+import { 
+  greeting, userName, description, question, askAnswer, final,
+} from '../src/index.js';
 
 export default function evenGame() {
-  console.log('Welcome to the Brain Games!');
-  const getName = () => readlineSync.question('May I have your name? ');
-  const name = getName();
-  console.log(`Hello, ${name}!`);
-
-  const description = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  description();
+  greeting();
+  const name = userName();
+  description('Answer "yes" if the number is even, otherwise answer "no".');
 
   const game = () => {
     for (let i = 0; i < 3; i += 1) {
       const number = Math.floor(Math.random() * 100);
 
-      const question = () => console.log(`Question: ${number} `);
-      question();
-      const answer = readlineSync.question('Your answer: ');
+      question(number);
+      const answer = askAnswer();
 
       const isEven = () => (number % 2 === 0);
 
@@ -30,8 +28,8 @@ export default function evenGame() {
         return;
       }
     }
-    console.log(`Congratulations, ${name}!`);
+    final(name);
   };
 
-  game();
+ 
 }
