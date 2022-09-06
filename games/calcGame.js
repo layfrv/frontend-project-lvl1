@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable no-unused-vars */
 import readlineSync from 'readline-sync';

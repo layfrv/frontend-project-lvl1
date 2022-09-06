@@ -30,6 +30,5 @@ export default function evenGame() {
     }
     final(name);
   };
-
- 
+  game();
 }
