@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-trailing-spaces */
-/* eslint-disable no-unused-vars */
 import readlineSync from 'readline-sync';
-import { 
+import {
   greeting, userName, description, question, askAnswer, final,
 } from '../src/index.js';
 
@@ -28,7 +27,7 @@ export default function calcGame() {
       } 
       return firstNumber * secondNumber;
     };
-        
+
     const result = operaton(getRandomOperator);
     return result;
   };

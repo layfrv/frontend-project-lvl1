@@ -1,36 +1,38 @@
 #!/usr/bin/env node
 /* eslint-disable no-trailing-spaces */
+/* eslint-disable no-unused-vars */
 import readlineSync from 'readline-sync';
 import {
   greeting, userName, description, question, askAnswer, final,
 } from '../src/index.js';
 
-export default function gcdGame() {
+export default function progressionGame() {
   greeting();
   const name = userName();
-  description('Find the greatest common divisor of given numbers.');
+  description('What number is missing in the progression?');
   let checkResult = 0;
 
   const game = () => {
-    const numb1 = Math.floor(Math.random() * 100);
-    const numb2 = Math.floor(Math.random() * 100);
-    // console.log(numb1, numb2)
+    const getProgressionArray = () => {
+      const numbers = [];
+      const firstNumber = Math.floor(Math.random() * 10);
+      const step = Math.floor(Math.random() * 10);
 
-    const findResult = (a, b) => {
-      const min = a < b ? a : b;
-      const result = [];
-      for (let i = 1; i <= min; i += 1) {
-        if (a % i === 0 && b % i === 0) {
-          result.push(i);
-        }
+      for (let i = firstNumber; numbers.length < 10; i += step) {
+        numbers.push(i);
       }
-      return Math.max(...result);
+      
+      return numbers;
     };
+    
+    const numbers = getProgressionArray();
+    const hiddenNumber = Math.floor(Math.random() * 10);
+    //console.log(hiddenNumber);
+    const result = numbers[hiddenNumber];
+    numbers[hiddenNumber] = '..';
+    const progressionStr = numbers.join(' ');
 
-    const result = findResult(numb1, numb2);
-    // console.log(result);
-
-    question(`${numb1} ${numb2}`);
+    question(progressionStr);
     const answer = askAnswer();
 
     if (answer == result) {
@@ -40,7 +42,7 @@ export default function gcdGame() {
       return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${name}!`);
     }
   };
-
+  
   for (let i = 1; i <= 3; i += 1) {
     if (checkResult === 0 && i === 3) {
       game();

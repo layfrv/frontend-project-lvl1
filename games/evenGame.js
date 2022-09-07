@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable keyword-spacing */
-// eslint-disable-next-line import/extensions, import/named
+/* eslint-disable no-trailing-spaces */
 import readlineSync from 'readline-sync';
 import { 
   greeting, userName, description, question, askAnswer, final,

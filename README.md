@@ -12,3 +12,7 @@ Brain-calc:
 
 Brain-gcd:
 <a href="https://asciinema.org/a/L3VqPBStqcO1kVCqEIggTf8LZ" target="_blank"><img src="https://asciinema.org/a/L3VqPBStqcO1kVCqEIggTf8LZ.svg" /></a>
+
+Brain-progression:
+<a href="https://asciinema.org/a/K3OjgCpz7zsYeI1em45u7dOeb" target="_blank"><img src="https://asciinema.org/a/K3OjgCpz7zsYeI1em45u7dOeb.svg" /></a>
+
