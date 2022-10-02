@@ -25,8 +25,5 @@ const expression = () => {
 const check = () => hiddenNumber;
 
 export default function progressionGame() {
-  f.greeting();
-  const name = f.userName();
-  f.description(text);
-  f.rounds(expression, name, check);
+  f.game(text, expression, check);
 }

@@ -23,8 +23,5 @@ const check = (expr) => {
 };
 
 export default function gcdGame() {
-  f.greeting();
-  const name = f.userName();
-  f.description(text);
-  f.rounds(expression, name, check);
+  f.game(text, expression, check);
 }

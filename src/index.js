@@ -37,7 +37,14 @@ const rounds = (expression, name, check) => {
   }
 };
 
+const game = (text, expression, check) => {
+  greeting();
+  const name = userName();
+  description(text);
+  rounds(expression, name, check);
+};
+
 export {
   greeting, userName, description, question, answer,
-  successFinal, unsuccessFinal, userAnswer, rounds,
+  successFinal, unsuccessFinal, userAnswer, rounds, game,
 };

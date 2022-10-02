@@ -13,8 +13,5 @@ const check = (n) => {
 };
 
 export default function evenGame() {
-  f.greeting();
-  const name = f.userName();
-  f.description(text);
-  f.rounds(numb, name, check);
+  f.game(text, numb, check);
 }
