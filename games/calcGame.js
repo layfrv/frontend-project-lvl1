@@ -1,59 +1,38 @@
 #!/usr/bin/env node
-/* eslint-disable no-trailing-spaces */
-import readlineSync from 'readline-sync';
-import {
-  greeting, userName, description, question, askAnswer, final,
-} from '../src/index.js';
+import * as f from '../src/index.js';
+
+const text = 'What is the result of the expression?';
+const firstNumber = () => Math.floor(Math.random() * 100);
+const secondNumber = () => Math.floor(Math.random() * 10);
+const operators = ['+', '-', '*'];
+const getRandomOperator = () => operators[Math.floor(Math.random() * operators.length)];
+const expression = () => `${firstNumber()} ${getRandomOperator()} ${secondNumber()}`;
+
+const check = (expr) => {
+  const symbols = expr.split(' ');
+  const firstNumb = Number(symbols[0]);
+  const sign = symbols[1];
+  const secondNumb = Number(symbols[2]);
+
+  const operaton = (n) => {
+    switch (n) {
+      case '+':
+        return firstNumb + secondNumb;
+      case '-':
+        return firstNumb - secondNumb;
+      case '*':
+        return firstNumb * secondNumb;
+      default:
+        return null;
+    }
+  };
+
+  return operaton(sign);
+};
 
 export default function calcGame() {
-  greeting();
-  const name = userName();
-  description('What is the result of the expression?');
-
-  let expression;
-
-  const doExpression = () => {
-    const firstNumber = Math.floor(Math.random() * 100);
-    const secondNumber = Math.floor(Math.random() * 10);
-    const operator = ['+', '-', '*'];
-    const getRandomOperator = operator[Math.floor(Math.random() * operator.length)];
-    expression = `${firstNumber} ${getRandomOperator} ${secondNumber}`;
-
-    const operaton = (n) => {
-      if (n === '+') {
-        return firstNumber + secondNumber;
-      } if (n === '-') {
-        return firstNumber - secondNumber;
-      } 
-      return firstNumber * secondNumber;
-    };
-
-    const result = operaton(getRandomOperator);
-    return result;
-  };
-
-  let checkResult = 0;
-
-  const game = () => {
-    const result = doExpression();
-    //console.log(result); 
-    question(expression);
-    const answer = askAnswer();
-
-    if (answer == result) {
-      console.log('Correct!');
-    } else {
-      checkResult = 1;
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${name}!`);
-    }
-  };
-
-  for (let i = 1; i <= 3; i += 1) {
-    if (checkResult === 0 && i === 3) {
-      game();
-      final(name);
-    } else if (checkResult === 0) {
-      game();
-    }
-  }
+  f.greeting();
+  const name = f.userName();
+  f.description(text);
+  f.rounds(expression, name, check);
 }

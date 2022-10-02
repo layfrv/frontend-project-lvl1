@@ -1,18 +1,43 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = () => {
+const greeting = () => {
   console.log('Welcome to the Brain Games!');
 };
 
-export const userName = () => {
+const userName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   return name;
 };
 
-export const description = (text) => console.log(`${text}`);
+const description = (text) => console.log(`${text}`);
 
-export const question = (number) => console.log(`Question: ${number} `);
-export const askAnswer = () => readlineSync.question('Your answer: ');
+const question = (expression) => console.log(`Question: ${expression} `);
+const answer = () => readlineSync.question('Your answer: ');
 
-export const final = (name) => console.log(`Congratulations, ${name}!`);
+const successFinal = (name) => console.log(`Congratulations, ${name}!`);
+const unsuccessFinal = (answer1, result, name) => console.log(`'${answer1}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${name}!`);
+
+const userAnswer = () => answer();
+
+const rounds = (expression, name, check) => {
+  for (let i = 1; i <= 3; i += 1) {
+    const numb = expression();
+    question(numb);
+    const finAnswer = userAnswer();
+    const rightAnswer = check(numb);
+
+    if (finAnswer == rightAnswer && i < 3) {
+      console.log('Correct!');
+    } else if (finAnswer == rightAnswer && i === 3) {
+      return successFinal(name);
+    } else {
+      return unsuccessFinal(finAnswer, rightAnswer, name);
+    }
+  }
+};
+
+export {
+  greeting, userName, description, question, answer,
+  successFinal, unsuccessFinal, userAnswer, rounds,
+};
